@@ -18,6 +18,7 @@
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "*",
         "spiriitlabs/form-filter-bundle": "^9.0",
+        "stof/doctrine-extensions-bundle": "^1.8",
         "symfony/asset": "5.4.*",
         "symfony/console": "5.4.*",
         "symfony/doctrine-messenger": "5.4.*",

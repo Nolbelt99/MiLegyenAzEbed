@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\BaseEntityRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: BaseEntityRepository::class)]
+#[ORM\HasLifecycleCallbacks]
+#[ORM\MappedSuperclass]
 class BaseEntity
 {
     #[ORM\Id]
@@ -24,18 +24,13 @@ class BaseEntity
     public function onPrePersist(): void
     {
         if (is_null($this->createdAt)) {
-            $this->createdAt = new \DateTime('now');
+            $this->createdAt = new \DateTimeImmutable('now');
+        }
+        if (is_null($this->updatedAt)) {
+            $this->updatedAt = new \DateTimeImmutable('now');
         }
     }
-
-    #[ORM\PreUpdate()]
-    public function onPreUpdate(): void
-    {
-        if (is_null($this->createdAt)) {
-            $this->updatedAt = new \DateTime('now');
-        }
-    }
-
+    
     public function getId(): ?int
     {
         return $this->id;

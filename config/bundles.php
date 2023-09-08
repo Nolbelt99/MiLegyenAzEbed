@@ -18,4 +18,5 @@ return [
     Karser\Recaptcha3Bundle\KarserRecaptcha3Bundle::class => ['all' => true],
     Spiriit\Bundle\FormFilterBundle\SpiriitFormFilterBundle::class => ['all' => true],
     Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle::class => ['all' => true],
+    Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle::class => ['all' => true],
 ];
