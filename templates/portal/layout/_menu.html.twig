@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-xl navbar-light" id="main-menu">
+  <a href="/" id="home"></a>
+  <a class="navbar-toggler text-light border-0 p-0" data-toggle="collapse" data-target="#nav"
+     aria-expanded="false" aria-label="Toggle navigation">
+    <i class="bi bi-list"></i>
+  </a>
+  <div class="collapse navbar-collapse" id="nav">
+    <ul class="navbar-nav">
+    </ul>
+  </div>
+  <div class="position-absolute" style="right: 15px; top: 5px">
+    {% if is_granted('ROLE_USER') %}
+      <a href="{{ path('portal_profile_form', {'id': app.user.id}) }}" class="ml-2"><i
+          class="bi bi-person"></i></a>
+      <a href="{{ path('app_logout') }}" class="ml-2"><i class="bi bi-door-closed"></i></a>
+    {% else %}
+    {% endif %}
+    <a class="navbar-brand " href="{{ path('portal_dashboard') }}">
+    <img class="site-logo" src="/assets/logo.png"/>
+    </a>
+  </div>
+</nav>
